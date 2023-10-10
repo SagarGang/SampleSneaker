@@ -1,0 +1,110 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.coordinatorlayout.widget.CoordinatorLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    style="@style/MatchParentLayout">
+
+    <com.google.android.material.appbar.AppBarLayout
+        android:id="@+id/appBar"
+        style="@style/MatchWrapLayout"
+        android:background="@android:color/white"
+        app:elevation="@dimen/dimen_0">
+
+        <androidx.appcompat.widget.Toolbar
+            android:id="@+id/toolbar"
+            style="@style/MatchWrapLayout"
+            android:layout_marginTop="@dimen/dimen_18"
+            android:paddingVertical="@dimen/dimen_12"
+            app:layout_scrollFlags="scroll|exitUntilCollapsed">
+
+            <androidx.appcompat.widget.AppCompatTextView
+                android:id="@+id/tvAppName"
+                style="@style/WrapContentLayout"
+                android:layout_gravity="center_vertical|start"
+                android:layout_marginStart="@dimen/dimen_24"
+                android:text="@string/app_name"
+                android:textColor="@color/light_orange"
+                android:textSize="@dimen/text_size_22" />
+
+            <androidx.appcompat.widget.AppCompatImageView
+                android:id="@+id/ivSearch"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center_vertical|end"
+                android:layout_marginEnd="@dimen/dimen_24"
+                app:srcCompat="@drawable/ic_search" />
+
+            <androidx.appcompat.widget.AppCompatImageView
+                android:id="@+id/ivClose"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center_vertical|end"
+                android:layout_marginEnd="@dimen/dimen_24"
+                android:visibility="gone"
+                app:srcCompat="@drawable/ic_close" />
+
+            <androidx.appcompat.widget.AppCompatEditText
+                android:id="@+id/etSearch"
+                style="@style/MatchWrapLayout"
+                android:layout_marginEnd="@dimen/dimen_32"
+                android:hint="@string/search"
+                android:imeOptions="actionDone"
+                android:textColor="@color/black"
+                android:textColorHint="@color/light_text_grey"
+                android:visibility="gone" />
+
+
+        </androidx.appcompat.widget.Toolbar>
+
+    </com.google.android.material.appbar.AppBarLayout>
+
+    <androidx.core.widget.NestedScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        app:layout_behavior="@string/appbar_scrolling_view_behavior">
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:paddingHorizontal="@dimen/dimen_12">
+
+            <androidx.appcompat.widget.AppCompatTextView
+                android:id="@+id/tvPopular"
+                style="@style/WrapContentLayout"
+                android:layout_marginStart="@dimen/dimen_12"
+                android:layout_marginTop="@dimen/dimen_18"
+                android:text="@string/popular"
+                android:textColor="@color/black"
+                android:textSize="@dimen/text_size_24"
+                android:textStyle="bold"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
+
+            <androidx.appcompat.widget.AppCompatTextView
+                style="@style/WrapContentLayout"
+                android:layout_marginEnd="@dimen/dimen_12"
+                android:text="@string/sort_by"
+                android:textColor="@color/black"
+                android:textSize="@dimen/text_size_18"
+                app:drawableEndCompat="@drawable/ic_down"
+                app:layout_constraintBottom_toBottomOf="@id/tvPopular"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintTop_toTopOf="@id/tvPopular" />
+
+            <androidx.recyclerview.widget.RecyclerView
+                android:id="@+id/rvSneakers"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/dimen_12"
+                app:layoutManager="androidx.recyclerview.widget.GridLayoutManager"
+                app:layout_behavior="@string/appbar_scrolling_view_behavior"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/tvPopular"
+                app:spanCount="2"
+                tools:itemCount="12"
+                tools:listitem="@layout/item_sneaker" />
+        </androidx.constraintlayout.widget.ConstraintLayout>
+
+    </androidx.core.widget.NestedScrollView>
+
+</androidx.coordinatorlayout.widget.CoordinatorLayout>

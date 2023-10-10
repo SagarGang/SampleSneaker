@@ -1,0 +1,67 @@
+<?xml version="1.0" encoding="utf-8"?>
+<com.google.android.material.card.MaterialCardView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    style="@style/MatchWrapLayout"
+    app:cardCornerRadius="@dimen/dimen_32"
+    app:cardUseCompatPadding="true">
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        style="@style/MatchWrapLayout"
+        android:padding="12dp">
+
+        <androidx.appcompat.widget.AppCompatImageView
+            android:id="@+id/ivAdd"
+            style="@style/WrapContentLayout"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:srcCompat="@drawable/ic_add" />
+
+        <androidx.appcompat.widget.AppCompatImageView
+            android:id="@+id/ivSneakerBg"
+            android:layout_width="@dimen/dimen_150"
+            android:layout_height="@dimen/dimen_150"
+            android:layout_marginTop="@dimen/dimen_16"
+            android:padding="@dimen/dimen_8"
+            android:src="@drawable/bg_sneaker"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <androidx.appcompat.widget.AppCompatImageView
+            android:id="@+id/ivSneaker"
+            android:layout_width="@dimen/dimen_0"
+            android:layout_height="@dimen/dimen_0"
+            android:src="@drawable/shoe"
+            app:layout_constraintBottom_toBottomOf="@id/ivSneakerBg"
+            app:layout_constraintEnd_toEndOf="@id/ivSneakerBg"
+            app:layout_constraintStart_toStartOf="@id/ivSneakerBg"
+            app:layout_constraintTop_toTopOf="@id/ivSneakerBg" />
+
+        <androidx.appcompat.widget.AppCompatTextView
+            android:id="@+id/tvSneakerName"
+            style="@style/WrapContentLayout"
+            android:layout_marginTop="@dimen/dimen_12"
+            android:textColor="@color/black"
+            android:textSize="@dimen/text_size_18"
+            android:textStyle="bold"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/ivSneakerBg"
+            tools:text="Sample Sneaker" />
+
+        <androidx.appcompat.widget.AppCompatTextView
+            android:id="@+id/tvPrice"
+            style="@style/WrapContentLayout"
+            android:textColor="@color/light_saffron"
+            android:textSize="@dimen/text_size_20"
+            android:textStyle="bold"
+            tools:text="500"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/tvSneakerName" />
+
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+</com.google.android.material.card.MaterialCardView>

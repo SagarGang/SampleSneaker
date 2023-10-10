@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/nav_graph"
+    app:startDestination="@id/sneakerListFragment">
+
+    <fragment
+        android:id="@+id/sneakerListFragment"
+        android:name="com.sagar.samplesneakerapp.ui.home.fragment.SneakerListFragment"
+        android:label="SneakerListFragment">
+        <action
+            android:id="@+id/action_sneakerList_to_cartList"
+            app:destination="@id/cartFragment" />
+
+        <action
+            android:id="@+id/action_sneakerList_to_sneakerDetail"
+            app:destination="@id/detailFragment" />
+
+    </fragment>
+
+    <fragment
+        android:id="@+id/cartFragment"
+        android:name="com.sagar.samplesneakerapp.ui.cart.fragment.SneakerCartFragment"
+        android:label="CartFragment" />
+
+    <fragment
+        android:id="@+id/detailFragment"
+        android:name="com.sagar.samplesneakerapp.ui.detail.fragment.SneakerDetailFragment"
+        android:label="CartFragment">
+        <argument
+            android:name="sneaker"
+            app:argType="com.sagar.samplesneakerapp.model.Sneaker"
+            app:nullable="true" />
+    </fragment>
+</navigation>

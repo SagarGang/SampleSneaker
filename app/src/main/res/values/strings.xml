@@ -1,0 +1,16 @@
+<resources>
+    <string name="app_name">SampleSneakerApp</string>
+    <string name="search">Search Sneaker…</string>
+    <string name="popular">Popular</string>
+    <string name="sort_by">Sort by</string>
+    <string name="cart">Cart</string>
+    <string name="order_details">Order Details</string>
+    <string name="checkout">CheckOut</string>
+    <string name="subtotal">SubTotal : $%d</string>
+    <string name="total">Total : $%d</string>
+    <string name="tax_charges">Taxes and Charges: $40</string>
+    <string name="size_uk">Size (uk) :</string>
+    <string name="colour">Colour :</string>
+    <string name="price">Price :</string>
+    <string name="add_to_cart">Add to Cart</string>
+</resources>

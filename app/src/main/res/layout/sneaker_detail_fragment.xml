@@ -1,0 +1,161 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:layout_margin="@dimen/dimen_12">
+
+    <androidx.appcompat.widget.AppCompatImageView
+        android:id="@+id/ivBack"
+        style="@style/WrapContentLayout"
+        android:rotation="90"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:srcCompat="@drawable/ic_down" />
+
+    <androidx.appcompat.widget.AppCompatImageView
+        android:id="@+id/ivSneakerBg"
+        android:layout_width="@dimen/dimen_0"
+        android:layout_height="@dimen/dimen_0"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintDimensionRatio="4:4"
+        app:layout_constraintEnd_toStartOf="@id/ivRight"
+        app:layout_constraintStart_toEndOf="@id/ivLeft"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.15"
+        app:srcCompat="@drawable/bg_sneaker" />
+
+    <androidx.appcompat.widget.AppCompatImageView
+        android:id="@+id/ivLeft"
+        android:layout_width="@dimen/dimen_50"
+        android:layout_height="@dimen/dimen_50"
+        android:layout_marginStart="@dimen/dimen_26"
+        android:rotation="90"
+        app:layout_constraintBottom_toBottomOf="@id/ivSneakerBg"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="@id/ivSneakerBg"
+        app:srcCompat="@drawable/ic_down" />
+
+    <androidx.appcompat.widget.AppCompatImageView
+        android:id="@+id/ivRight"
+        android:layout_width="@dimen/dimen_50"
+        android:layout_height="@dimen/dimen_50"
+        android:layout_marginEnd="@dimen/dimen_26"
+        android:rotation="270"
+        app:layout_constraintBottom_toBottomOf="@id/ivSneakerBg"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toTopOf="@id/ivSneakerBg"
+        app:srcCompat="@drawable/ic_down" />
+
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/rvSneakers"
+        android:layout_width="@dimen/dimen_0"
+        android:layout_height="@dimen/dimen_0"
+        android:orientation="horizontal"
+        android:padding="@dimen/dimen_8"
+        app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
+        app:layout_constraintBottom_toBottomOf="@id/ivSneakerBg"
+        app:layout_constraintEnd_toEndOf="@id/ivSneakerBg"
+        app:layout_constraintStart_toStartOf="@id/ivSneakerBg"
+        app:layout_constraintTop_toTopOf="@id/ivSneakerBg"
+        app:srcCompat="@drawable/shoe"
+        tools:listitem="@layout/item_sneaker_iv" />
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/dimen_0"
+        android:layout_marginTop="@dimen/dimen_18"
+        android:background="@drawable/bg_bottom_bar"
+        android:padding="@dimen/dimen_24"
+        app:elevation="@dimen/dimen_4"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/rvSneakers">
+
+        <androidx.appcompat.widget.AppCompatTextView
+            android:id="@+id/tvSneakerName"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:textColor="@color/black"
+            android:textSize="@dimen/text_size_24"
+            android:textStyle="bold"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <androidx.appcompat.widget.AppCompatTextView
+            android:id="@+id/tvSneakerDes"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:textSize="@dimen/text_size_18"
+            app:layout_constraintTop_toBottomOf="@id/tvSneakerName" />
+
+        <androidx.appcompat.widget.AppCompatTextView
+            android:id="@+id/tvSize"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/dimen_24"
+            android:text="@string/size_uk"
+            android:textSize="@dimen/text_size_20"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/tvSneakerDes" />
+
+        <androidx.recyclerview.widget.RecyclerView
+            android:id="@+id/rvSneakerSize"
+            android:layout_width="@dimen/dimen_0"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
+            app:layout_constraintBottom_toBottomOf="@id/tvSize"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toEndOf="@id/guidLine"
+            app:layout_constraintTop_toTopOf="@id/tvSize"
+            tools:itemCount="3"
+            tools:listitem="@layout/item_sneaker_size" />
+
+        <androidx.constraintlayout.widget.Guideline
+            android:id="@+id/guidLine"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            app:layout_constraintGuide_percent="0.3" />
+
+        <androidx.appcompat.widget.AppCompatTextView
+            android:id="@+id/tvPrice"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/dimen_36"
+            android:text="@string/price"
+            android:textSize="@dimen/text_size_20"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/tvSize" />
+
+        <androidx.appcompat.widget.AppCompatTextView
+            android:id="@+id/tvPriceAmount"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="@dimen/dimen_8"
+            android:layout_marginTop="@dimen/dimen_36"
+            android:textColor="@color/light_saffron"
+            android:textSize="@dimen/text_size_20"
+            android:textStyle="bold"
+            app:layout_constraintStart_toEndOf="@id/tvPrice"
+            app:layout_constraintTop_toBottomOf="@id/tvSize" />
+
+        <androidx.appcompat.widget.AppCompatButton
+            android:id="@+id/btnCart"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:background="@drawable/bg_button_saffron"
+            android:paddingHorizontal="@dimen/dimen_22"
+            android:text="@string/add_to_cart"
+            android:textAllCaps="false"
+            android:textColor="@color/white"
+            android:textSize="@dimen/text_size_16"
+            app:layout_constraintBottom_toBottomOf="@id/tvPriceAmount"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="@id/guidLine"
+            app:layout_constraintTop_toTopOf="@id/tvPriceAmount" />
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+</androidx.constraintlayout.widget.ConstraintLayout>
+
