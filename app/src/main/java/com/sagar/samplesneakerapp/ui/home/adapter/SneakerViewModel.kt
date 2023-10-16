@@ -5,6 +5,7 @@ import androidx.lifecycle.viewModelScope
 import com.sagar.samplesneakerapp.model.Sneaker
 import com.sagar.samplesneakerapp.repo.SneakerRepositoryImpl
 import dagger.hilt.android.lifecycle.HiltViewModel
+import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.ExperimentalCoroutinesApi
 import kotlinx.coroutines.FlowPreview
 import kotlinx.coroutines.flow.MutableStateFlow
@@ -14,6 +15,7 @@ import kotlinx.coroutines.flow.distinctUntilChanged
 import kotlinx.coroutines.flow.flatMapLatest
 import kotlinx.coroutines.flow.flowOf
 import kotlinx.coroutines.launch
+import kotlinx.coroutines.withContext
 import javax.inject.Inject
 
 const val DELAY = 400L
@@ -22,8 +24,9 @@ const val DELAY = 400L
 class SneakerViewModel @Inject constructor(private val repository: SneakerRepositoryImpl) :
     ViewModel() {
 
-    val sneakerList: StateFlow<List<Sneaker>>
-        get() = repository.sneakerList
+    private val _sneakerList = MutableStateFlow<List<Sneaker>>(emptyList())
+    val sneakerList: MutableStateFlow<List<Sneaker>>
+        get() = _sneakerList
 
     val sneakerAdded: StateFlow<Boolean>
         get() = repository.addSneaker
@@ -39,8 +42,12 @@ class SneakerViewModel @Inject constructor(private val repository: SneakerReposi
         }
 
     fun getSneakers() {
-        viewModelScope.launch {
-            repository.getSneakers()
+        viewModelScope.launch(Dispatchers.IO){
+            repository.getSneakers().collect{
+                withContext(Dispatchers.Main.immediate){
+                    _sneakerList.emit(it)
+                }
+            }
         }
     }
 
